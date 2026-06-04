@@ -1,0 +1,108 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#292237,#282f49);
+    color:white;
+    text-align:center;
+    min-height:100vh;
+}
+
+#game{
+    width:95%;
+    max-width:400px;
+    margin:20px auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+}
+
+.card{
+    aspect-ratio:1/1;
+    background:#f25;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:clamp(24px,6vw,40px);
+    cursor:pointer;
+    user-select:none;
+
+    transition:all .4s ease;
+    transform-style:preserve-3d;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+.card.flipped{
+    background:white;
+    color:black;
+    animation:flip .4s ease;
+}
+
+@keyframes flip{
+    0%{
+        transform:rotateY(0deg);
+    }
+    50%{
+        transform:rotateY(90deg);
+    }
+    100%{
+        transform:rotateY(180deg);
+    }
+}
+
+button{
+    padding:12px 24px;
+    font-size:18px;
+    border:none;
+    border-radius:10px;
+}
+
+@media (max-width:600px){
+    h1{
+        font-size:24px;
+    }
+
+    #status{
+        font-size:16px;
+    }
+
+    .card{
+        font-size:30px;
+    }
+}
+body{
+    background:linear-gradient(
+        -45deg,
+        #292237,
+        #282f49,
+        #4b2d73,
+        #ff2b6e
+    );
+
+    background-size:400% 400%;
+    animation:bgMove 8s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+.win{
+    animation:winAnimation 1s infinite;
+}
+
+@keyframes winAnimation{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.1);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
